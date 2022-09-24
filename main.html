@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="grid-container">
+        <div class="box" id="box1"> <input type="text" id="1" value="1" onkeyup=" onkeyupFunc(event)" readonly> </div>
+        <div class="box" id="box2"><input type="text" id="2" value="2" onkeyup="onkeyupFunc(event)" readonly></div>
+        <div class="box" id="box3"><input type="text" id="3" value="3" onkeyup="onkeyupFunc(event)" readonly></div>
+        <div class="box" id="box4"> <input type="text" id="4" value="4" onkeyup="onkeyupFunc(event)" readonly></div>
+        <div class="box" id="box5"> <input type="text" id="5" value="5" onkeyup="onkeyupFunc(event)" readonly></div>
+        <div class="box" id="box6"> <input type="text" id="6" value="6" onkeyup="onkeyupFunc(event)" readonly></div>
+        <div class="box" id="box7"> <input type="text" id="7" value="7" onkeyup="onkeyupFunc(event)" readonly></div>
+        <div class="box" id="box8"> <input type="text" class="empty-box" id="8"  onkeyup="onkeyupFunc(event)" readonly></div>
+        <div class="box " id="box9"> <input type="text"  id="9" value="8" onkeyup="onkeyupFunc(event)" value="" readonly></div>
+    </div>
+</div>
+
+    <div class="options">
+        <div class="moves">
+            <div id="movements"><span style="color: green; ">Moves : </span>0</div>
+        </div>
+
+        <div class="score" id="score">
+            <span style="color: green; ">Score : </span>    0
+        </div>
+
+        <div class="timer" id="timer">00:00:00
+                
+        </div>
+
+        <button class="reset" id="reset" onclick="reset()">Reset</button>
+        <button class="restart" id="restart" onclick="restart()">Restart</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
