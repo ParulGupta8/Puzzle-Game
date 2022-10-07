@@ -4,7 +4,7 @@ function onkeyupFunc(event) {
     let keypressed=event.key;  //which key is pressed
     let id=event.target.getAttribute("id");   //id of the element on which the event(onkeyup event) has occured
     let value=event.target.value;   //value of that element
-    // return if delected box empty
+    // return if delected box is empty
     if(value==""){
         return;
     }
@@ -95,7 +95,6 @@ function random() {
         arr.push(temp)
         
     }
-
 }
 function genRan(elem,arr) {
     let temp=Math.floor(Math.random() * (8 ) + 1);
@@ -107,10 +106,6 @@ function genRan(elem,arr) {
     return temp;
 }
 
-document.onreadystatechange = function(){//window.addEventListener('readystatechange',function(){...}); (for Netscape) and window.attachEvent('onreadystatechange',function(){...}); (for IE and Opera) also work
-    if(document.readyState=='loaded' || document.readyState=='complete')
-        alert('fsdfsdf');
-}
 function checkCorrect() {    
     let id=1;
     let bool=true;
@@ -125,43 +120,40 @@ function checkCorrect() {
     if (bool) {
         console.log(document.readyState);
         if(document.readyState=='loaded' || document.readyState=='complete'){
-
             alert("You Did It!! Congratulations!!!");
         }
         let high_score=localStorage.getItem('high_score');
-    if(!high_score){
-    high_score=0; 
-    }
+        if(!high_score){
+            high_score=0; 
+        }
 
-    if(score>high_score)
-    alert("New High Score");
-    localStorage.setItem('high_score',`${score}`);
-    }
+        if(score>high_score)
+            alert("New High Score");
+        localStorage.setItem('high_score',`${score}`);
+        restart();
+        }
 }
-
-//random();
 
 //TIMER...
 setInterval(myTimer,1000);
 let timer=document.getElementById("timer");
-    let h=00; 
-    let m=00;
-    let s=00;
-    let ms=00;
+let h=00; 
+let m=00;
+let s=00;
+let ms=00;
 function myTimer(){
     if (move>=1) {           
         s++;
     }
 
-            if(s==60){
-            s=00;
-            m++;
+    if(s==60){
+    s=00;
+    m++;
 
-            if(m==60){
-                m=00;
-                h++; }
-            }
-    
+    if(m==60){
+        m=00;
+        h++; }
+    }
 
     let hr= h<10 ? "0"+h : h;
     let min= m<10 ? "0"+m : m;
@@ -187,8 +179,9 @@ function moves(){
     move++;
     document.getElementById("movements").innerHTML=`<span style="color: green; ">Moves : </span>${move}`;
 }
-let score=0;
+
  //RESET...
+let score=0;
 function reset(){
     random();
     score=0;
@@ -196,24 +189,11 @@ function reset(){
 }
 
 //SCORE...
-
-// moves > & time > --score
-// in right position block player got 100 point //point
-// total time /move *
 function scores(){
-// let point=0;   
-//     for (let index = 1; index < 9; index++) {
-//         elem=document.getElementById(`${index}`);
-//         if (elem.value == `${index}`) {
-//             point++;
-//         }        
-//     }
     let divisor= (((h*60)+m) + move);
     if(divisor==0){
         divisor=1;
     }
-    //score=((point+100000)/divisor).toFixed(0);
     score=(100000/divisor).toFixed(0);
-document.getElementById("score").innerHTML=`<span style="color: green; ">Score : </span>${score}`;
-
+    document.getElementById("score").innerHTML=`<span style="color: green; ">Score : </span>${score}`;
 }
